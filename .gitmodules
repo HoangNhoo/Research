@@ -1,0 +1,9 @@
+[submodule "llamacpp/ggml-standalone"]
+	path = llamacpp/ggml-standalone
+	url = https://github.com/ggml-org/ggml.git
+[submodule "llamacpp/llama.cpp"]
+	path = llamacpp/llama.cpp
+	url = https://github.com/ggml-org/llama.cpp.git
+[submodule "ollama"]
+	path = ollama
+	url = git@github.com:ollama/ollama.git

@@ -1,0 +1,12 @@
+set environment LD_LIBRARY_PATH ./llama.cpp/build-rpc-debug/ggml/src:./llama.cpp/build-rpc-debug/ggml/src/ggml-cpu:./llama.cpp/build-rpc-debug/ggml/src/ggml-rpc:./llama.cpp/build-rpc-debug/ggml/src/ggml-amx:./llama.cpp/build-rpc-debug/src
+set substitute-path /home/hoangnhoo/Research/llamacpp /home/hoangnhoo/Research/llama-rpc-rce
+# gdb-pwndbg -x gdbscript --args ./llama.cpp/build-rpc-debug/bin/rpc-server -p 50052
+
+start
+break /home/hoangnhoo/Research/llamacpp/llama.cpp/ggml/src/ggml-rpc/ggml-rpc.cpp:ggml_backend_rpc_start_server
+# break /home/hoangnhoo/Research/llamacpp/llama.cpp/ggml/src/ggml-rpc/ggml-rpc.cpp:rpc_serve_client
+break /home/hoangnhoo/Research/llamacpp/llama.cpp/ggml/src/ggml-rpc/ggml-rpc.cpp:1040
+# break /home/hoangnhoo/Research/llamacpp/llama.cpp/ggml/src/ggml-rpc/ggml-rpc.cpp:rpc_server::alloc_buffer
+# break /home/hoangnhoo/Research/llamacpp/llama.cpp/ggml/src/ggml-rpc/ggml-rpc.cpp:rpc_server::buffer_get_base
+break /home/hoangnhoo/Research/llamacpp/llama.cpp/ggml/src/ggml-rpc/ggml-rpc.cpp:rpc_server::set_tensor
+break /home/hoangnhoo/Research/llamacpp/llama.cpp/ggml/src/ggml-rpc/ggml-rpc.cpp:rpc_server::deserialize_tensor
